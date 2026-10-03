@@ -3,7 +3,7 @@ from Core.Data.data_gainer import DataGainer
 from Core.Data.data_manager import DataManager
 from Core.Launcher.zapret_launcher import Launcher
 from flet import (Page, run, Text, Switch, Alignment, BorderSide,
-                    IconButton, Icons, Column, ButtonStyle, Tooltip, Banner,
+                    IconButton, Icons, Column, ButtonStyle, Tooltip,
                     RoundedRectangleBorder as RRB, TextStyle, Colors, MenuStyle,
                     BoxDecoration, Theme, TooltipTheme, Row, Dropdown, DropdownOption)
 

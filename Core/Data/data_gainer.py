@@ -12,8 +12,8 @@ class DataGainer:
         self.__DATA_TABLE: dict[str, str] = {
             "%BIN%" : abspath(f"{self.__DATA_MANAGER.UNPACKED_FOLDER_PATH}zapret\\executable") + "\\",
             "%LISTS%" : abspath(f"{self.__DATA_MANAGER.UNPACKED_FOLDER_PATH}zapret\\lists") + "\\",
-            "%GameFilterTCP%": "12",
-            "%GameFilterUDP%": "12",
+            "%GameFilterTCP%": "1024-65535",
+            "%GameFilterUDP%": "1024-65535",
             " ^\n": "",
             "-user": ""
         }
