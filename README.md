@@ -4,13 +4,13 @@ GUI для zapret-discord-youtube от Flowseal'а
 > [!TIP]
 >
 > ## ЗАПУСК
-> Скачайте [самый актуальный релиз](https://github.com/maowdic/Unleasher/releases/latest) и запустите .exe файл от имени адмиистратора
+> Скачайте [`самый актуальный релиз`](https://github.com/maowdic/Unleasher/releases/latest) и запустите .exe файл от имени адмиистратора
  
 > [!IMPORTANT]
 >
 > ## ОРИГИНАЛЬНЫЕ АВТОРЫ
-> Часть файлов, которые лежат в папке [zapret/executable](./Binaries/zapret/executable) были взяты от [`bol-van`](https://github.com/bol-van), вторая же - от [`Flowseal`](https://github.com/Flowseal)
-> В процессе, программа подкачивает файлы из [репозитория `Flowseal`](https://github.com/Flowseal/zapret-discord-youtube)
+> Часть файлов, которые лежат в папке [`zapret/executable`](./Binaries/zapret/executable) были взяты от [`bol-van`](https://github.com/bol-van), вторая же - от [`Flowseal`](https://github.com/Flowseal)
+> В процессе, программа подкачивает файлы из [`репозитория Flowseal`](https://github.com/Flowseal/zapret-discord-youtube)
 >
 > ## ЛЕГИТИМНОСТЬ КОДА
 > Данный код полностью соответствует скомпилированному коду, версии библиотек указаны в [requrements.txt](./requirements.txt)
