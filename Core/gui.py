@@ -56,12 +56,16 @@ class App:
             self.__UPDATE_DOWNLOADED = False
             download_response: bool = self.__DATA_GAINER.UpdateSettings(file_name=VERSION.value)
             self.__UPDATE_DOWNLOADED = True
-            UPDATE.style.shape.side.color = self.__COLORS["default" if download_response else "red"]
+            UPDATE.style.shape.side.color = self.__COLORS["green" if download_response else "red"]
             UPDATE.tooltip = Tooltip("Обновление прошло успешно." if download_response else "Произошла ошибка скачивания.",
                 vertical_offset=50)
 
         def ChangeColor(param: str = "active") -> str:
             return self.__COLORS["green" if self.__DATA_MANAGER.ExtractData()[param] else "red"] 
+
+        def ResetUpdate() -> None:
+            UPDATE.style.shape.side.color = self.__COLORS["default"]
+            UPDATE.tooltip=Tooltip("Обновить настройки подключения.", vertical_offset=50)
         
         def ChangeTooltip() -> Tooltip:
             return Tooltip("Служба обхода активна." if self.__DATA_MANAGER.ExtractData()["active"] else "Служба обхода неактивна.",
@@ -76,7 +80,7 @@ class App:
 
         VERSION: Dropdown = Dropdown(value=self.__DATA_MANAGER.ExtractData()["setting"][:-4], width=150, border_radius=20, border_color=self.__COLORS["default"], 
             border_width=0.5, options=[DropdownOption(text=i, key=i) for i in self.__OPTIONS], align=Alignment.BOTTOM_CENTER, tooltip=Tooltip("Выбор настроек подключения.", vertical_offset=135),
-            menu_height=200, menu_style=MenuStyle(shape=RRB(radius=20, side=BorderSide(width=0.5, color=self.__COLORS["default"]))))
+            menu_height=110, menu_style=MenuStyle(shape=RRB(radius=17.5, side=BorderSide(width=0.5, color=self.__COLORS["default"]))), on_select=ResetUpdate)
 
         UPDATE: IconButton = IconButton(Icons.DOWNLOAD_OUTLINED, icon_size=100, align=Alignment.CENTER, height=100, width=150,
             style=ButtonStyle(shape=RRB(radius=20, side=BorderSide(width=0.5, color=self.__COLORS["default"]))), 
