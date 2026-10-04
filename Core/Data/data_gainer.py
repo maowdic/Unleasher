@@ -19,7 +19,7 @@ class DataGainer:
         }
         pass
 
-    def UpdateSettings(self: Any, file_name: str = "general (EXP)") -> bool:
+    def UpdateSettings(self: Any, file_name: str = "general (ALT9)") -> bool:
         file_name += ".bat"
         was_activated: bool = self.__DATA_MANAGER.ExtractData()["active"]
 
