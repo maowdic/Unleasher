@@ -10,7 +10,7 @@ class DataManager:
         self.__DEFAULT_DATA: dict[str, bool] = {
             "active" : False,
             "autoloader" : False,
-            "setting": "general (ALT 9).bat"
+            "setting": "general (ALT9).bat"
         }
         self.__FILENAME: str = "local_data.json"
         self.UNPACKED_FOLDER_PATH: str = f"{environ["APPDATA"]}\\Unleasher\\"
