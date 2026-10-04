@@ -4,7 +4,7 @@ GUI для zapret-discord-youtube от Flowseal'а
 > [!TIP]
 >
 > ## ЗАПУСК
-> Скачайте [`самый актуальный релиз`](https://github.com/maowdic/Unleasher/releases/latest) и запустите .exe файл от имени адмиистратора
+> Скачайте [`самый актуальный релиз`](https://github.com/maowdic/Unleasher/releases/latest) и запустите .exe файл от имени администратора
  
 > [!IMPORTANT]
 >
@@ -13,7 +13,7 @@ GUI для zapret-discord-youtube от Flowseal'а
 > В процессе, программа подкачивает файлы из [`репозитория Flowseal`](https://github.com/Flowseal/zapret-discord-youtube)
 >
 > ## ЛЕГИТИМНОСТЬ КОДА
-> Данный код полностью соответствует скомпилированному коду, версии библиотек указаны в [`requrements.txt`](./requirements.txt)
+> Данный код полностью соответствует скомпилированному коду, версии библиотек указаны в [`requirements.txt`](./requirements.txt)
 
 > [!WARNING]
 >
