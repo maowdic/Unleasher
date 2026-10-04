@@ -4,7 +4,7 @@ GUI для zapret-discord-youtube от Flowseal'а
 > [!TIP]
 >
 > ## ЗАПУСК
-> Скачайте [самый актуальный релиз](https://github.com/maowdic/Unleasher/releases) и запустите .exe файл от имени адмиистратора
+> Скачайте [самый актуальный релиз](https://github.com/maowdic/Unleasher/releases/latest) и запустите .exe файл от имени адмиистратора
  
 > [!IMPORTANT]
 >
@@ -22,4 +22,4 @@ GUI для zapret-discord-youtube от Flowseal'а
 > ### 1. Распаковка файлов
 > Для сборки проекта я использовал [`pyInstaller`](https://pypi.org/project/pyinstaller/), который упаковывает все файлы в один .exe файл. При открытии файла создается временная папка, в которой лежат python-и-не-только-скрипты. Антивирус находит распаковку всего в одно место подозрительной, потому и бъёт тревогу.
 > ### 2. Содержащиеся в проекте файлы
-> В проекте используется еще один скрипт [`WinDivert`](https://github.com/Flowseal/zapret-discord-youtube/blob/main/README.md), про который уже все рассказал Flowseal у себя в проекте
+> В проекте используется еще один скрипт [`WinDivert`](https://github.com/Flowseal/zapret-discord-youtube/blob/main/README.md#антивирусы), про который уже все рассказал Flowseal у себя в проекте
