@@ -30,10 +30,13 @@ class Launcher:
                 stdout=DEVNULL
             )
             return
-        if "winws.exe" in check_output("tasklist", text=True, creationflags=0x08000000).lower():
+        if self.CheckIfZapretIsRunning():
             for command in [["taskkill","/F","/IM","winws.exe"], 
                             ["sc", "stop", "WinDivert"]]:
                 self.SilentLaunch(command)
+
+    def CheckIfZapretIsRunning(self: Any) -> bool:
+        return "winws.exe" in check_output("tasklist", text=True, creationflags=0x08000000).lower()
 
     def ChangeAutoloaderStatus(self: Any, activate: bool) -> None:
         self.SilentLaunch(["schtasks", "/Create", "/TN", self.__TASKNAME, "/TR", self.__LAUNCHER_PATH, "/SC", "ONLOGON", "/RL", "HIGHEST", "/RU", "SYSTEM", "/F"]

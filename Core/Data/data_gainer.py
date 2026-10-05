@@ -53,3 +53,10 @@ class DataGainer:
                 settings_list.append(setting_name[:-4])
 
         return settings_list
+
+    def CheckForUpdates(self: Any) -> bool:
+        current_version: str = get("https://raw.githubusercontent.com/Flowseal/zapret-discord-youtube/main/.service/version.txt").content.decode("utf-8")
+        if self.__DATA_MANAGER.ExtractData()["version"] != current_version:
+            self.__DATA_MANAGER.InsertData("version", current_version)
+            return True
+        return False
