@@ -20,9 +20,13 @@ class DataManager:
         try:
             with open(self.UNPACKED_FOLDER_PATH + self.__FILENAME) as file:
                 return load(file)[key]
-        except (FileNotFoundError, KeyError):
+        except FileNotFoundError:
             self.InsertData(reset=True)
             return self.__DEFAULT_DATA
+        except KeyError:
+            default_data: Any = self.__DEFAULT_DATA[key]
+            self.InsertData(key, default_data)
+            return default_data
 
     def InsertData(self, key: Any = None, value: Any = None, reset: bool = False) -> None:
         with open(self.UNPACKED_FOLDER_PATH + self.__FILENAME) as file:
