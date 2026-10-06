@@ -53,7 +53,7 @@ class App:
             if not(self.__update_downloaded):
                 return
             self.__update_downloaded = False
-            download_response: bool = self.__data_gainer.UpdateSettings(file_name=VERSION.value)
+            download_response: bool = self.__data_gainer.UpdateSettings(filename=VERSION.value)
             self.__update_downloaded = True
             UPDATE.style.shape.side.color = self.__COLORS["green" if download_response else "red"]
             UPDATE.tooltip = Tooltip("Обновление прошло успешно." if download_response else "Произошла ошибка скачивания.",
