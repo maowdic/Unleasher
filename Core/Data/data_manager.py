@@ -25,10 +25,12 @@ class DataManager:
             return self.__DEFAULT_DATA
 
     def InsertData(self, key: Any = None, value: Any = None, reset: bool = False) -> None:
-        with open(self.UNPACKED_FOLDER_PATH + self.__FILENAME, "w+") as file:
+        with open(self.UNPACKED_FOLDER_PATH + self.__FILENAME) as file:
             if not reset:
                 loaded_file: dict[str, Any] = self.TryToLoad(file) or self.__DEFAULT_DATA
                 loaded_file[key] = value
+        
+        with open(self.UNPACKED_FOLDER_PATH + self.__FILENAME, "w+") as file:
             dump(self.__DEFAULT_DATA if reset else loaded_file, file, indent=4)
 
     def UnpackData(self) -> bool:
