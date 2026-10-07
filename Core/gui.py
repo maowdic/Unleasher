@@ -38,55 +38,55 @@ class App:
         page.window.icon = f"{self.__data_manager.UNPACKED_FOLDER_PATH}flet\\AppIcon.ico"
 
         def AutoloaderAction() -> None:
-            self.__data_manager.InsertData("autoloader", AUTOLOADER.value)
-            AUTOLOADER.track_outline_color = ChangeParamColor("autoloader")
-            self.__zapret_launcher.ChangeAutoloaderStatus(AUTOLOADER.value)
+            self.__data_manager.InsertData("autoloader", autoloader.value)
+            autoloader.track_outline_color = ChangeParamColor("autoloader")
+            self.__zapret_launcher.ChangeAutoloaderStatus(autoloader.value)
 
         def LaunchAction() -> None:
             current_state: bool = not(self.__data_manager.ExtractData("active"))
             self.__data_manager.InsertData("active", current_state)
-            LAUNCH.style.shape.side.color = ChangeParamColor("active")
-            LAUNCH.tooltip = ChangeTooltip()
+            launch.style.shape.side.color = ChangeParamColor("active")
+            launch.tooltip = ChangeTooltip()
             self.__zapret_launcher.ChangeLaunchStatus(current_state)
 
         def Update() -> None:
             if not(self.__update_downloaded):
                 return
             self.__update_downloaded = False
-            download_response: bool = self.__data_gainer.UpdateSettings(filename=VERSION.value)
+            download_response: bool = self.__data_gainer.UpdateSettings(filename=version.value)
             self.__update_downloaded = True
-            UPDATE.style.shape.side.color = self.__COLORS["green" if download_response else "red"]
-            UPDATE.tooltip = Tooltip("Обновление прошло успешно." if download_response else "Произошла ошибка скачивания.",
+            update.style.shape.side.color = self.__COLORS["green" if download_response else "red"]
+            update.tooltip = Tooltip("Обновление прошло успешно." if download_response else "Произошла ошибка скачивания.",
                 vertical_offset=50)
 
         def ChangeParamColor(param: str) -> str:
             return self.__COLORS["green" if self.__data_manager.ExtractData(param) else "red"] 
 
         def ResetUpdate() -> None:
-            UPDATE.style.shape.side.color = self.__COLORS["default"]
-            UPDATE.tooltip=Tooltip("Обновить настройки подключения.", vertical_offset=50)
+            update.style.shape.side.color = self.__COLORS["default"]
+            update.tooltip=Tooltip("Обновить настройки подключения.", vertical_offset=50)
         
         def ChangeTooltip() -> Tooltip:
             return Tooltip("Служба обхода активна." if self.__data_manager.ExtractData("active") else "Служба обхода неактивна.",
             vertical_offset=82.5, text_style=TextStyle(color=self.__COLORS["default"], size=10))
 
-        BANNER: Text = Text(self.APP_NAME, align=Alignment.CENTER, size=75, 
+        banner: Text = Text(self.APP_NAME, align=Alignment.CENTER, size=75, 
             font_family="Banner", color=self.__COLORS["default"])
         
-        LAUNCH: IconButton = IconButton(Icons.POWER_SETTINGS_NEW_OUTLINED, icon_size=150, align=Alignment.CENTER,
+        launch: IconButton = IconButton(Icons.POWER_SETTINGS_NEW_OUTLINED, icon_size=150, align=Alignment.CENTER,
             style=ButtonStyle(shape=RRB(radius=20, side=BorderSide(width=0.5, color=ChangeParamColor("active")))),
             on_click=LaunchAction, icon_color=self.__COLORS["default"], tooltip=ChangeTooltip())
 
-        VERSION: Dropdown = Dropdown(value=self.__data_manager.ExtractData("setting")[:-4],
+        version: Dropdown = Dropdown(value=self.__data_manager.ExtractData("setting")[:-4],
             width=150, border_radius=20, border_color=self.__COLORS["default"], border_width=0.5, options=[DropdownOption(text=i, key=i) for i in self.__OPTIONS],
             align=Alignment.BOTTOM_CENTER, tooltip=Tooltip("Выбор настроек подключения.", vertical_offset=135), menu_height=110, 
             menu_style=MenuStyle(shape=RRB(radius=17.5, side=BorderSide(width=0.5, color=self.__COLORS["default"]))), on_select=ResetUpdate)
 
-        UPDATE: IconButton = IconButton(Icons.DOWNLOAD_OUTLINED, icon_size=100, align=Alignment.CENTER, height=100, width=150,
+        update: IconButton = IconButton(Icons.DOWNLOAD_OUTLINED, icon_size=100, align=Alignment.CENTER, height=100, width=150,
             style=ButtonStyle(shape=RRB(radius=20, side=BorderSide(width=0.5, color=self.__COLORS["default"]))), 
             icon_color=self.__COLORS["default"], tooltip=Tooltip("Обновить настройки подключения.", vertical_offset=50), on_click=Update)
         
-        AUTOLOADER: Switch = Switch(value=self.__data_manager.ExtractData("autoloader"), 
+        autoloader: Switch = Switch(value=self.__data_manager.ExtractData("autoloader"), 
             align=Alignment.CENTER, label=" Автозапуск службы обхода блокировок",
             label_text_style=TextStyle(size=13, color=self.__COLORS["default"]),
             tooltip=Tooltip("WinWS.exe будет включаться автоматически при запуске компьютера.", vertical_offset=15),
@@ -96,11 +96,11 @@ class App:
         
         page.add(
             Column([
-            BANNER,
-            Row([LAUNCH, 
-                Column([VERSION, UPDATE])
+            banner,
+            Row([launch, 
+                Column([version, update])
                 ], spacing=15),
-            AUTOLOADER
+            autoloader
             ], spacing=30))
 
         if self.__data_gainer.CheckForUpdates():
