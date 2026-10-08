@@ -20,12 +20,13 @@ class App:
         self.__zapret_launcher: Launcher = Launcher()
         self.__update_downloaded: bool = True
 
-    def __Body(self, page: Page) -> None:
+    def __Body(self, page: Page, show_banner: bool) -> None:
         page.theme = Theme(
             tooltip_theme=TooltipTheme(
                 decoration=BoxDecoration(bgcolor="dark"), 
-                text_style=TextStyle(color=self.__COLORS["default"], size=10))
-            )
+                text_style=TextStyle(color=self.__COLORS["default"], size=10)
+                )
+        )
 
         page.theme_mode = "dark"
         page.title = self.APP_NAME
@@ -103,7 +104,7 @@ class App:
             autoloader
             ], spacing=30))
 
-        if self.__data_gainer.CheckForUpdates():
+        if show_banner:
             page.show_dialog(
                 AlertDialog(title=Text(f"ZAPRET {self.__data_manager.ExtractData("version")}", align=Alignment.CENTER), 
                 title_text_style=TextStyle(size=40, color=self.__COLORS["default"], font_family="Banner"), modal=True,
@@ -116,6 +117,6 @@ class App:
     def Launch(self) -> None:
         if self.__data_manager.UnpackData():
             self.__data_gainer.UpdateSettings()
-        if self.__zapret_launcher.CheckIfZapretIsRunning():
-            self.__data_manager.InsertData("active", True)
-        run(self.__Body)
+        self.__data_manager.InsertData("active", self.__zapret_launcher.CheckIfZapretIsRunning())
+        update_available: bool = self.__data_gainer.CheckForUpdates() 
+        run(lambda page: self.__Body(page, update_available))
