@@ -1,0 +1,30 @@
+# UNLEASHER
+GUI для zapret-discord-youtube от Flowseal'а
+
+> [!TIP]
+>
+> ## ЗАПУСК
+> Скачайте [`самый актуальный релиз`](https://github.com/maowdic/Unleasher/releases/latest) и запустите .exe файл от имени администратора
+>
+> ## РЕЛИЗЫ
+> Код и релизы маркируются следующим образом: Название-Патч.
+
+
+ 
+> [!IMPORTANT]
+>
+> ## ОРИГИНАЛЬНЫЕ АВТОРЫ
+> Часть файлов, которые лежат в папке [`zapret/executable`](./Binaries/zapret/executable) были взяты от [`bol-van`](https://github.com/bol-van), вторая же - от [`Flowseal`](https://github.com/Flowseal)
+> В процессе, программа подкачивает файлы из [`репозитория Flowseal`](https://github.com/Flowseal/zapret-discord-youtube)
+>
+> ## ЛЕГИТИМНОСТЬ КОДА
+> Данный код полностью соответствует скомпилированному коду, версии библиотек указаны в [`requirements.txt`](./requirements.txt)
+
+> [!WARNING]
+>
+> ## ПРО АНТИВИРУСЫ
+> Программа может вызвать острую реакцию антивирусов по нескольким причинам
+> ### 1. Распаковка файлов
+> Для сборки проекта я использовал [`pyInstaller`](https://pypi.org/project/pyinstaller/), который упаковывает все файлы в один .exe файл. При открытии файла создается временная папка, в которой лежат python-и-не-только-скрипты. Антивирус находит распаковку всего в одно место подозрительной, потому и бъёт тревогу.
+> ### 2. Содержащиеся в проекте файлы
+> В проекте используется еще один скрипт [`WinDivert`](https://github.com/Flowseal/zapret-discord-youtube/blob/main/README.md#антивирусы), про который уже рассказал [`Flowseal`](https://github.com/Flowseal) у себя в проекте
